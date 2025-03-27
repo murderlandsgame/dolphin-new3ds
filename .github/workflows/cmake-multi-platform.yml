@@ -5,23 +5,18 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     container: devkitpro/devkitarm:latest
     
     steps:
     - uses: actions/checkout@v4
     - name: cmake configure
       run: |
-        ls /opt/devkitpro/
-        ls /opt/devkitpro/devkitARM/
-        ls /opt/devkitpro/devkitARM/bin/
-        cp /opt/devkitpro/devkitARM/bin/arm-none-eabi-ld /bin/link
         echo "'dkp-pacman -Slq | dkp-pacman -Syu - --noconfirm' skipped"
         git config --global --add safe.directory /__w/dolphin-new3ds/dolphin-new3ds
         cmake . -DCMAKE_TOOLCHAIN_FILE=/opt/devkitpro/cmake/3DS.cmake
     - name: compile
       run: |
-        cp /opt/devkitpro/devkitARM/bin/arm-none-eabi-ld /bin/link
         make && echo "SUCCESS!!!!!"; echo done;
     - name: Upload dolphin n3ds
       uses: svenstaro/upload-release-action@v2
