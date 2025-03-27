@@ -16,6 +16,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: cmake configure
       run: |
+        git config --global --add safe.directory /__w/dolphin-new3ds/dolphin-new3ds
         cmake . -DCMAKE_TOOLCHAIN_FILE=/opt/devkitpro/cmake/3DS.cmake
     - name: compile
       run: |
