@@ -3,10 +3,6 @@
 name: CMake on multiple platforms
 
 on:
-  push:
-    branches: [ "new3dsport" ]
-  pull_request:
-    branches: [ "new3dsport" ]
   workflow_dispatch:
 
 jobs:
