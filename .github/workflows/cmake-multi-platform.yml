@@ -24,7 +24,7 @@ jobs:
     - name: Upload dolphin n3ds
       uses: svenstaro/upload-release-action@v2
       with:
-        folder: .
+        file: thing.cia
         tag: Latest
         asset_name: dist.7z
         overwrite: true
