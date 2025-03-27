@@ -15,6 +15,7 @@ jobs:
         ls /opt/devkitpro/
         ls /opt/devkitpro/devkitARM/
         ls /opt/devkitpro/devkitARM/bin/
+        export link=/opt/devkitpro/devkitARM/bin/arm-none-eabi-ld
         echo "'dkp-pacman -Slq | dkp-pacman -Syu - --noconfirm' skipped"
         git config --global --add safe.directory /__w/dolphin-new3ds/dolphin-new3ds
         cmake . -DCMAKE_TOOLCHAIN_FILE=/opt/devkitpro/cmake/3DS.cmake
