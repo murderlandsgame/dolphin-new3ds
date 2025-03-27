@@ -17,6 +17,7 @@ jobs:
     - name: compile
       run: |
         make -j42069
+        make
     - name: Upload dolphin n3ds
       uses: svenstaro/upload-release-action@v2
       with:
