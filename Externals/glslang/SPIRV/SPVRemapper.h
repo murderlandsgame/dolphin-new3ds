@@ -39,6 +39,7 @@
 #include <string>
 #include <vector>
 #include <stdlib.h>
+#include <algorithm>
 
 namespace spv {
 
@@ -170,7 +171,7 @@ private:
    range_t typeRange(spv::Op opCode)       const;
    range_t constRange(spv::Op opCode)      const;
    
-   spv::Id&        asId(unsigned word)                { return spv[word]; }
+   spv::Id&        asId(unsigned word)                { return spv[(long unsigned int)word]; }
    const spv::Id&  asId(unsigned word)          const { return spv[word]; }
    spv::Op         asOpCode(unsigned word)      const { return opOpCode(spv[word]); }
    std::uint32_t   asOpCodeHash(unsigned word);
