@@ -21,6 +21,7 @@ jobs:
         cmake . -DCMAKE_TOOLCHAIN_FILE=/opt/devkitpro/cmake/3DS.cmake
     - name: compile
       run: |
+        cp /opt/devkitpro/devkitARM/bin/arm-none-eabi-ld /bin/link
         make && echo "SUCCESS!!!!!"; echo done;
     - name: Upload dolphin n3ds
       uses: svenstaro/upload-release-action@v2
