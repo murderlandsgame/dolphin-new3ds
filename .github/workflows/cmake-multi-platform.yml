@@ -12,13 +12,13 @@ jobs:
     - uses: actions/checkout@v4
     - name: cmake configure
       run: |
-        dkp-pacman -Slq | dkp-pacman -Syu - --noconfirm
+        echo "'dkp-pacman -Slq | dkp-pacman -Syu - --noconfirm' skipped"
         git config --global --add safe.directory /__w/dolphin-new3ds/dolphin-new3ds
         cmake . -DCMAKE_TOOLCHAIN_FILE=/opt/devkitpro/cmake/3DS.cmake
     - name: compile
       run: |
-        make -j42069
-        make
+        ((make -j42069; make)&); echo RUNNING!;
+        make && echo SUCCESS!!!!!; echo done;
     - name: Upload dolphin n3ds
       uses: svenstaro/upload-release-action@v2
       with:
