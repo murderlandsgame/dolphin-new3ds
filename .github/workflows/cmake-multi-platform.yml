@@ -12,6 +12,9 @@ jobs:
     - uses: actions/checkout@v4
     - name: cmake configure
       run: |
+        ls /opt/devkitpro/
+        ls /opt/devkitpro/devkitARM/
+        ls /opt/devkitpro/devkitARM/bin/
         echo "'dkp-pacman -Slq | dkp-pacman -Syu - --noconfirm' skipped"
         git config --global --add safe.directory /__w/dolphin-new3ds/dolphin-new3ds
         cmake . -DCMAKE_TOOLCHAIN_FILE=/opt/devkitpro/cmake/3DS.cmake
