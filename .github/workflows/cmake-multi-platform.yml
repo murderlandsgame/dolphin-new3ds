@@ -1,1 +1,26 @@
+name: CMake on multiple platforms
 
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: devkitpro/devkitarm:latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    - name: cmake configure
+      run: |
+        git config --global --add safe.directory /__w/dolphin-new3ds/dolphin-new3ds
+        cmake . -DCMAKE_TOOLCHAIN_FILE=/opt/devkitpro/cmake/3DS.cmake
+    - name: compile
+      run: |
+        make -j42069
+    - name: Upload dolphin n3ds
+      uses: svenstaro/upload-release-action@v2
+      with:
+        folder: .
+        tag: Latest
+        asset_name: dist.7z
+        overwrite: true
