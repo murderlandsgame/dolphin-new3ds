@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: linux-latest
     container: devkitpro/devkitarm:latest
     
     steps:
